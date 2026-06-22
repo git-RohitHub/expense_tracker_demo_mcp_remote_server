@@ -3,7 +3,7 @@ import sqlite3
 import os
 
 mcp = FastMCP("LOCAL EXPENSE TRACKER SERVER")
-DB_PATH = os.path.join(os.path.dirname(__file__),"expense.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),"expense.db")
 
 def init_db():
     with sqlite3.connect(DB_PATH) as c : 
