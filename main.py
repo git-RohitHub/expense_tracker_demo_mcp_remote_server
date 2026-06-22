@@ -1,6 +1,5 @@
 from fastmcp import FastMCP
 from supabase import create_client
-import psycopg2
 import os
 from dotenv import load_dotenv
 
@@ -12,25 +11,6 @@ supabase = create_client(
     os.getenv("SUPABASE_URL"),
     os.getenv("SUPABASE_KEY")
 )
-
-
-def init_db():
-    """Create table if not exists using direct Postgres connection."""
-    with psycopg2.connect(os.getenv("SUPABASE_DB_URL")) as conn:
-        with conn.cursor() as cur:
-            cur.execute("""
-                CREATE TABLE IF NOT EXISTS expenses (
-                    id          SERIAL PRIMARY KEY,
-                    date        TEXT NOT NULL,
-                    amount      REAL NOT NULL,
-                    category    TEXT NOT NULL,
-                    subcategory TEXT DEFAULT '',
-                    note        TEXT DEFAULT ''
-                )
-            """)
-
-
-init_db()
 
 
 @mcp.tool
