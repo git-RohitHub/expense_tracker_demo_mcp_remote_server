@@ -1,2 +1,3 @@
-fastmcp
-supabase
+fastmcp>=3.4.2
+supabase>=2.31.0
+psycopg2-binary>=2.9.12
