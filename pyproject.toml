@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fastmcp>=3.4.2",
+    "psycopg2-binary>=2.9.12",
+    "supabase>=2.31.0",
 ]
